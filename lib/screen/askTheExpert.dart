@@ -26,7 +26,7 @@ class _ExpAdviceState extends State<ExpAdvice> {
     super.initState();
     urltoIDConverter();
     Future.delayed(Duration(seconds: 50), () {
-      Navigator.pop(context);
+      if (this.mounted) Navigator.pop(context);
     });
   }
 

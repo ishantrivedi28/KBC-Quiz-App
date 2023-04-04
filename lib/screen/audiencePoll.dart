@@ -49,7 +49,7 @@ class _AudiencePollState extends State<AudiencePoll> {
         isVoting = false;
       });
       Future.delayed(Duration(seconds: 7), (() {
-        Navigator.pop(context);
+        if (this.mounted) Navigator.pop(context);
       }));
     }));
   }

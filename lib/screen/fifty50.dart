@@ -45,7 +45,7 @@ class _Fifty50State extends State<Fifty50> {
     fetchWrongOptions();
     super.initState();
     Future.delayed(Duration(seconds: 10), (() {
-      Navigator.pop(context);
+      if (this.mounted) Navigator.pop(context);
     }));
   }
 

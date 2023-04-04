@@ -14,10 +14,10 @@ class Looser extends StatelessWidget {
             image: DecorationImage(
                 image: AssetImage("assets/img/loose.png"), fit: BoxFit.cover)),
         child: Scaffold(
-          floatingActionButton: ElevatedButton(
-            child: Text("Retry"),
-            onPressed: () {},
-          ),
+          // floatingActionButton: ElevatedButton(
+          //   child: Text("Retry"),
+          //   onPressed: () {},
+          // ),
           backgroundColor: Colors.transparent,
           body: Center(
             child: Container(

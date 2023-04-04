@@ -44,33 +44,43 @@ class _FactsPageState extends State<FactsPage> {
       appBar: AppBar(
         title: Text("Facts Corner"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image(
-            image: NetworkImage(
-                'https://upload.wikimedia.org/wikipedia/commons/8/8d/Facts_-_Idil_Keysan_-_Wikimedia_Giphy_stickers_2019.gif'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              "Fact Of The Day:",
-              style: TextStyle(
-                color: Colors.deepPurple,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image(
+              image: NetworkImage(
+                  'https://upload.wikimedia.org/wikipedia/commons/8/8d/Facts_-_Idil_Keysan_-_Wikimedia_Giphy_stickers_2019.gif'),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                "Fact Of The Day:",
+                style: TextStyle(
+                  color: Colors.deepPurple,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              fact,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 30, color: Colors.black),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                fact,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30, color: Colors.black),
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  getFacts();
+                },
+                child: Text("Next Fact"))
+          ],
+        ),
       ),
     );
   }

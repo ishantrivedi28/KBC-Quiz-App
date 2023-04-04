@@ -46,8 +46,7 @@ class _QuizIntroState extends State<QuizIntro> {
     await LocalDB.saveExp(true);
     await LocalDB.saveFifty(true);
     await LocalDB.saveJok(true);
-    final player = AudioPlayer();
-    await player.play(AssetSource("audio_effects/KBC_INTRO.mp3"));
+
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -62,6 +61,11 @@ class _QuizIntroState extends State<QuizIntro> {
   //     AssetSource("audio_effects/QUESTION.mp3"),
   //   );
   // }
+
+  introMusic() async {
+    final player = AudioPlayer();
+    await player.play(AssetSource("audio_effects/KBC_INTRO.mp3"));
+  }
 
   @override
   void initState() {

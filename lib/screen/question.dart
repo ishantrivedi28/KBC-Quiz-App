@@ -135,7 +135,7 @@ class _QuestionState extends State<Question> {
                     return AlertDialog(
                       title: Text("DO YOU WANT TO QUIT THE GAME?"),
                       content: Text(
-                          "You will get Rs. ${widget.queMoney == 5000 ? 0 : int.parse(widget.queMoney) / 2}"),
+                          "You will get Rs. ${widget.queMoney == "5000" ? 0 : int.parse(widget.queMoney) / 2}"),
                       actions: [
                         ElevatedButton(
                             onPressed: () async {

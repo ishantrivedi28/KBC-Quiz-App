@@ -24,16 +24,16 @@ class _ProfileState extends State<Profile> {
   getLeaders() async {
     await FirebaseFirestore.instance
         .collection("users")
-        .orderBy("money")
+        .orderBy("money", descending: true)
         .get()
         .then((value) {
       setState(() {
-        leader = value.docs.reversed.toList();
+        leader = value.docs.toList();
       });
     });
   }
 
-  String k_m_b_generator(num) {
+  String k_m_b_generator(int num) {
     if (num > 999 && num < 99999) {
       return "${(num / 1000).toStringAsFixed(1)} K";
     } else if (num > 99999 && num < 999999) {
@@ -109,7 +109,7 @@ class _ProfileState extends State<Profile> {
                     height: 10,
                   ),
                   Text(
-                    "${widget.name}\nRs.${k_m_b_generator(int.parse(widget.money))}",
+                    "${widget.name}\nRs.${k_m_b_generator(int.parse(widget.money)).toString()}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
@@ -185,7 +185,7 @@ class _ProfileState extends State<Profile> {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           trailing: Text(
-                            "Rs. ${k_m_b_generator(int.parse(leader[index].data()["money"]))}",
+                            "Rs. ${k_m_b_generator(int.parse(leader[index].data()["money"].toString()))}",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         );

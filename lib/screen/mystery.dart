@@ -13,7 +13,7 @@ class MysteryPage extends StatefulWidget {
 
 class _MysteryPageState extends State<MysteryPage> {
   var mystery;
-  getMystery() async {
+  Future getMystery() async {
     String xApiKey = (dotenv.env['X_API_KEY'])!;
     Uri uri = Uri.parse('https://api.api-ninjas.com/v1/riddles');
     Map<String, String> headers = {'X-Api-Key': xApiKey};
@@ -74,18 +74,31 @@ class _MysteryPageState extends State<MysteryPage> {
                                     fontWeight: FontWeight.w700),
                               ),
                               SizedBox(
-                                height: 10,
+                                height: 15,
                               ),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(SnackBar(
-                                            content: Text(
-                                      mystery['answer'],
-                                      style: TextStyle(fontSize: 15),
-                                    )));
-                                  },
-                                  child: Text("Show Answer")),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                content: Text(
+                                          mystery['answer'],
+                                          style: TextStyle(fontSize: 15),
+                                        )));
+                                      },
+                                      child: Text("Show Answer")),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        // mystery = await getMystery();
+
+                                        setState(() {});
+                                      },
+                                      child: Text("Next Mystery"))
+                                ],
+                              ),
                             ],
                           ),
                         )

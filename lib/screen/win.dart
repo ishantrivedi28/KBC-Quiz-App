@@ -28,7 +28,7 @@ class _WinState extends State<Win> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    playWinMusic();
+    // playWinMusic();
     setState(() {
       initController();
     });

@@ -102,6 +102,9 @@ class _Lifeline_DrawerState extends State<Lifeline_Drawer> {
                                   correctAnswer: widget.correctAns)));
                     } else {
                       print("already user");
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Lifeline alraedy Used!")));
                     }
                   }),
                   child: Column(
@@ -136,6 +139,7 @@ class _Lifeline_DrawerState extends State<Lifeline_Drawer> {
                   onTap: () async {
                     if (await checkJok()) {
                       await LocalDB.saveJok(false);
+
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -144,6 +148,9 @@ class _Lifeline_DrawerState extends State<Lifeline_Drawer> {
                                   queMoney: widget.quesMon)));
                     } else {
                       print("joker already used");
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Lifeline alraedy Used!")));
                     }
                   },
                   child: Column(
@@ -187,6 +194,10 @@ class _Lifeline_DrawerState extends State<Lifeline_Drawer> {
                                   opt2: widget.opt2,
                                   opt3: widget.opt3,
                                   opt4: widget.opt4)));
+                    } else {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Lifeline alraedy Used!")));
                     }
                   },
                   child: Column(
@@ -227,6 +238,10 @@ class _Lifeline_DrawerState extends State<Lifeline_Drawer> {
                               builder: (context) => ExpAdvice(
                                   YTurl: widget.YTurl,
                                   question: widget.question)));
+                    } else {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Lifeline alraedy Used!")));
                     }
                   }),
                   child: Column(

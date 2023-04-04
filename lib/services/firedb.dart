@@ -18,7 +18,7 @@ class FireDB {
         "name": name,
         "email": email,
         "photoUrl": photoUrl,
-        "money": "0",
+        "money": 0.toInt(),
         "rank": "NA",
         "level": "0",
         "uid": uid
@@ -35,41 +35,44 @@ class FireDB {
 updateMoney(int amount) async {
   if (amount != 2500) {
     final FirebaseAuth _auth = FirebaseAuth.instance;
+
     await FirebaseFirestore.instance
         .collection("users")
         .doc(_auth.currentUser!.uid)
         .get()
         .then((value) async {
+      int updatedMoney = ((value.data()!["money"])) + amount;
       await FirebaseFirestore.instance
           .collection("users")
           .doc(_auth.currentUser!.uid)
-          .update({
-        "money": (int.parse((value.data()!["money"])) + amount).toString()
-      });
-      await LocalDB.saveMoney(
-          (int.parse((value.data()!["money"])) + amount).toString());
+          .update({"money": updatedMoney.toInt()});
+      await LocalDB.saveMoney(updatedMoney.toString());
     });
   }
 }
 
 fetchRank() async {
-  String uid = await FirebaseAuth.instance.currentUser!.uid;
-  int count = 1;
+  String uid = FirebaseAuth.instance.currentUser!.uid;
+
+  int count1 = 1;
+
   await FirebaseFirestore.instance
       .collection("users")
-      .orderBy("money")
+      .orderBy("money", descending: true)
       .get()
       .then((value) {
     value.docs.forEach((element) async {
       if (uid == element.data()["uid"]) {
-        await FirebaseFirestore.instance
-            .collection("users")
-            .doc(uid)
-            .update({"rank": count.toString()});
-        await LocalDB.saveRank(count.toString());
-        print("rank is $count");
-      } else
-        count++;
+        print("rank is $count1");
+        await LocalDB.saveRank(count1.toString()).then((value) async {
+          await FirebaseFirestore.instance
+              .collection("users")
+              .doc(uid)
+              .update({"rank": count1.toString()});
+        });
+      } else {
+        count1++;
+      }
     });
   });
 }
@@ -100,7 +103,7 @@ Future<bool> getUser(String uid) async {
         .get()
         .then((value) async {
       user = value.data().toString();
-      await LocalDB.saveMoney(value["money"]);
+      await LocalDB.saveMoney(value["money"].toString());
       await LocalDB.saveLevel(value["level"]);
       await LocalDB.saveRank(value["rank"]);
     });

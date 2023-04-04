@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
     setState(() {
       isLoading = true;
     });
-    FirebaseFirestore.instance
+    await FirebaseFirestore.instance
         .collection("users")
         .orderBy("money", descending: true)
         .get()

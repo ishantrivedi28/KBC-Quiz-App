@@ -32,7 +32,7 @@ Future<User?> signWithGoogle() async {
     await FireDB().createNewUser(user.displayName.toString(),
         user.email.toString(), user.photoURL.toString(), user.uid);
   } catch (e) {
-    print("Error");
+    print("Error thid");
     print(e);
   }
 }

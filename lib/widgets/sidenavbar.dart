@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kbc/screen/about_us.dart';
 import 'package:kbc/screen/home.dart';
 import 'package:kbc/screen/login.dart';
 import 'package:kbc/screen/profile.dart';
@@ -111,13 +112,19 @@ class SideNav extends StatelessWidget {
               path: MaterialPageRoute(builder: (context) {
                 return Home();
               }),
-              label: "DAILY QUIZ",
-              icon: Icons.quiz,
+              label: "Home",
+              icon: Icons.home,
             ),
             listItem(
               context: context,
               path: MaterialPageRoute(builder: (context) {
-                return Home();
+                return Profile(
+                  level: level,
+                  money: money,
+                  rank: rank,
+                  proUrl: url,
+                  name: name,
+                );
               }),
               label: "Leaderboard",
               icon: Icons.leaderboard,
@@ -125,15 +132,7 @@ class SideNav extends StatelessWidget {
             listItem(
               context: context,
               path: MaterialPageRoute(builder: (context) {
-                return Home();
-              }),
-              label: "How to Use",
-              icon: Icons.question_answer,
-            ),
-            listItem(
-              context: context,
-              path: MaterialPageRoute(builder: (context) {
-                return Home();
+                return AboutUs();
               }),
               label: "About Us",
               icon: Icons.face,
@@ -172,8 +171,28 @@ class SideNav extends StatelessWidget {
         style: TextStyle(color: color),
       ),
       onTap: () async {
-        await signOut();
-        Navigator.pushReplacement(context, path);
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  actions: [
+                    TextButton(
+                      onPressed: () async {
+                        await signOut();
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (context) => Login()),
+                            (route) => false);
+                      },
+                      child: Text("Yes"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("No"),
+                    ),
+                  ],
+                  title: Text("Are You Sure You Want To Signout?"),
+                ));
       },
     );
   }
@@ -198,6 +217,7 @@ class SideNav extends StatelessWidget {
         style: TextStyle(color: color),
       ),
       onTap: () {
+        Navigator.push(context, path);
         // QuerySnapshot? x;
         // print(uid);
         // var z;

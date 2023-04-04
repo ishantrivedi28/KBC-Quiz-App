@@ -14,7 +14,7 @@ class QuizDhandha {
         .doc(user_id)
         .get()
         .then((user) {
-      balance = int.parse(user.data()!["money"]);
+      balance = user.data()!["money"];
       paisaHaiKya = QuizPrice <= balance;
     });
     if (paisaHaiKya) {
@@ -28,7 +28,7 @@ class QuizDhandha {
       await FirebaseFirestore.instance
           .collection("users")
           .doc(user_id)
-          .update({"money": (balance - QuizPrice).toString()});
+          .update({"money": (balance - QuizPrice).toInt()});
       await LocalDB.saveMoney(((balance) - QuizPrice).toString());
       return true;
     } else

@@ -29,6 +29,6 @@ External API
 <img src="https://user-images.githubusercontent.com/78365647/230163906-a46022e8-a518-4764-adb8-98f5c391173c.jpg" alt="Alt Text3" height="400" align="left" />
 <img src="https://user-images.githubusercontent.com/78365647/230163940-4813751d-fa7e-4f94-8334-996c905c9659.jpg" alt="Alt Text4" height="400" align="right" />
 <img src="https://user-images.githubusercontent.com/78365647/230163955-2248d8fe-f4d1-451e-b690-5875ce16a58a.jpg" alt="Alt Text5" height="400" align="left" /> 
-<img src="https://user-images.githubusercontent.com/78365647/230163981-3264b96e-7874-4281-ab74-0c4150c2eff1.jpg" alt="Alt Text2" height="400" align="right" />
-<img src="https://user-images.githubusercontent.com/78365647/230164029-6009e418-f5d5-46fd-9bd7-8dcc5956a6ff.jpg" alt="Alt Text3" height="400" align="left" />
-<img src="https://user-images.githubusercontent.com/78365647/230164037-81400834-3d57-481b-94f0-7d9b5f610c53.jpg" alt="Alt Text4" height="400" align="right" />
+<img src="https://user-images.githubusercontent.com/78365647/230163981-3264b96e-7874-4281-ab74-0c4150c2eff1.jpg" alt="Alt Text2" height="400" align="center" />
+<img src="https://user-images.githubusercontent.com/78365647/230164029-6009e418-f5d5-46fd-9bd7-8dcc5956a6ff.jpg" alt="Alt Text3" height="400" align="center" />
+<img src="https://user-images.githubusercontent.com/78365647/230164037-81400834-3d57-481b-94f0-7d9b5f610c53.jpg" alt="Alt Text4" height="400" align="center" />

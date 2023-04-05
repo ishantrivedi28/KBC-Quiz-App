@@ -5,22 +5,22 @@ The KBC Quiz App is a mobile application that allows users to test their knowled
 
 ## Functionality
 The application has the following features:  
-Play Quiz
-Use Lifelines during Quiz
-Win Money
-Unlock more quizzes
-Access Leaderboard
-Solve Mysteries
-Explore Amazing Facts
+Play Quiz  
+Use Lifelines during Quiz  
+Win Money  
+Unlock more quizzes  
+Access Leaderboard  
+Solve Mysteries  
+Explore Amazing Facts  
 
 ## Technology Used
-The application is built using the following technologies:  
+The application is built using the following technologies:    
 Flutter SDK  
 Dart programming language  
-Firebase Firestore for data storage
-Youtube VideoPlayer
-AudioPlayer
-External API
+Firebase Firestore for data storage  
+Youtube VideoPlayer  
+AudioPlayer  
+External API  
 
 ## Screenshots:
 
